@@ -6,7 +6,6 @@ const Home = () => {
   return (
     <>
       <S.Title>This is the Home from home page</S.Title>
-      <Logo />
     </>
   )
 }
