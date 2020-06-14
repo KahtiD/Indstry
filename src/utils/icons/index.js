@@ -1,6 +1,7 @@
-import { ReactComponent as Logo } from './logo.svg'
-
-
-export {
-    Logo
-}
+export { ReactComponent as Logo } from './logo.svg'
+export { ReactComponent as Profile } from './Circle.svg'
+export { ReactComponent as Comment } from './Comment.svg'
+export { ReactComponent as Like } from './Like.svg'
+export { ReactComponent as Retweet} from './Retweet.svg'
+export { ReactComponent as Share } from './Share.svg'
+export { ReactComponent as Control } from './Control.svg'

@@ -3,27 +3,52 @@ import { gql } from 'apollo-boost';
 export const LANDINGPAGE_QUERY = gql`
   {
     landingPage(where: {id: "ckbdnp2q01n7v01027e01cjkl"}) {
-        id
-        description {
+      id
+      description {
+        html
+      }
+      hero {
+        body {
           html
         }
-        hero {
-          body {
-            html
-          }
-          image {
-            url
-          }
-        } 
-        personas {
-          image {
-            url
-          }
-          name
-          description
-          width
-          height
+        image {
+          url
         }
+      } 
+      personas {
+        image {
+          url
+        }
+        name
+        description
+        width
+        height
+      }
+      bio {
+        body {
+          html
+        }
+        image {
+          url
+        }
+      }
+      cta {
+        body {
+          html
+        }
+        buttonText
+      }
+      twitterIntro
+      tweets {
+        tweetNumber 
+        date
+        tweet
+        author
+        link
+        comments
+        retweets
+        likes
+      }
     } 
   }
 `
