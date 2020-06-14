@@ -1,14 +1,15 @@
 import React from 'react'
 import { Home } from './containers'
-import { Header } from './components'
+import { Header} from './components'
 import { Route, Switch } from 'react-router-dom'
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components/macro'
 import media from 'styled-media-query'
 import { theme } from './utils/theme'
 
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
+    box-sizing: border-box;
     font-family: Helvetica Neue;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -27,12 +28,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Header />
-      <Container>
-        <Switch>
-          <Route path="/" exact component={Home}  />
-        </Switch>
-      </Container>
+        <Header />
+        <Container>
+          <Switch>
+            <Route path="/" exact component={Home}  />
+          </Switch>
+        </Container>
     </ThemeProvider>
   );
 }
