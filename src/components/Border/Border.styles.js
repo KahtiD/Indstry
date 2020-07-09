@@ -1,20 +1,29 @@
 import styled from 'styled-components/macro'
 
+export const Wrapper = styled.div`
+    background-color: white;
+`
+
 export const Line = styled.hr`
-width: 100vw;
-position: relative;
-left: 50%;
-right: 50%;
-margin-left: -50vw;
-margin-right: -50vw;
-    color: ${props => props.theme.ui01};
+    border-top: 0px;
+    &:after {
+        content: '';
+        position: absolute;
+        border-top: 1px solid ${props => props.theme.ui02};
+        border-bottom: 0px;
+        width: 100%;
+        transform: translateX(-50%);
+        left: 50%;
+    }
     &:first-of-type {
         margin-top: 0rem;
     }
     &:nth-of-type(2) {
-        color: ${props => props.theme.brandColor};
+        &:after {
+            border-top: 1px solid ${props => props.theme.brandColor}; 
+        }
     }
-    &:last-child {
+    &:last-of-type {
         margin-bottom: 0rem;
     }
 `

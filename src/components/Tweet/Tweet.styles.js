@@ -16,7 +16,7 @@ export const Heading = styled.h1`
     }
 `
 export const Text = styled.p`
-    // font-family: 'Indie Flower';
+    // margin-top: 0rem;
 `
 export const Author = styled.a`
     text-decoration: none;

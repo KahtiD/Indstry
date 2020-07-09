@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './Home.styles'
-import { Hero, Border, PersonaCard, Tweet, Carousel } from '../../components'
+import { Hero, Border, PersonaCard, Tweet, Carousel, SignUp, ExperienceCard } from '../../components'
 import { useQuery } from '@apollo/react-hooks';
 import { LANDINGPAGE_QUERY } from '../../utils/queries'
 
@@ -10,14 +10,15 @@ const Home = () => {
   const hero = data.landingPage.hero
   const text = data.landingPage
   const personas = data.landingPage.personas
+  const experienceCards = data.landingPage.experienceCards
   const tweets = data.landingPage.tweets
-  console.log(tweets)
+  console.log(experienceCards)
   return (
     <S.Grid>
       <Hero image={hero.image} text={hero.body.html}/>
-      {/* <Border /> */}
+      <Border />
       <S.Description text={text.description.html} />
-      <S.SubGrid>
+      <S.PersonaGrid>
         {personas.map( (persona, i) => (
           <PersonaCard
             key={i}  
@@ -29,18 +30,35 @@ const Home = () => {
 
           />
         ))}
-      </S.SubGrid>
-      <S.Bio text={text.bio.body.html}/>
-      <S.Image image={text.bio.image.url} />
-      {/* <Border /> */}
+      </S.PersonaGrid>
+      <Border />
+      <S.BioWrapper>
+        <S.BioText text={text.bio.body.html}/>
+        <S.Image image={text.bio.image.url} />
+      </S.BioWrapper>
+      <S.BorderExt />
       <S.CTAContainer>
-        <S.Wrapper>
+        <S.CTAWrapper>
           <S.CTAText text={text.cta.body.html}/>
           <S.CTAButton>{text.cta.buttonText}</S.CTAButton>
-        </S.Wrapper>
+        </S.CTAWrapper>
       </S.CTAContainer>
-      <S.CTAText text={text.twitterIntro}/>
-      <Carousel items={tweets}/>
+      <S.ExperiencesContainer>
+        <S.ExperienceText text={text.experienceText.html} />
+        {experienceCards.map( card => (
+            <ExperienceCard 
+              key={card.id}
+              heading={card.heading.html}
+              image={card.image}
+              link={card.link}
+            />
+          )
+        )}
+        {/* <S.ExperienceText text={text.tweetCta.html} /> */}
+        {/* <Carousel items={tweets}/> */}
+        {/* <SignUp /> */}
+      </S.ExperiencesContainer>
+      
     </S.Grid>
   )
 }

@@ -38,7 +38,22 @@ export const LANDINGPAGE_QUERY = gql`
         }
         buttonText
       }
-      twitterIntro
+      experienceText {
+        html
+      }
+      experienceCards {
+        id
+        heading {
+          html
+        }
+        image {
+          url
+        }
+        link
+      }
+      tweetCta {
+        html
+      }
       tweets {
         tweetNumber 
         date

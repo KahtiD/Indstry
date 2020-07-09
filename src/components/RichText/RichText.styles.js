@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 
 export const Text = styled.div`
     font-size: 1.25rem;
-    .color {
-        color: ${props => props.theme.secondaryFontColor};
-    }
+    // .color {
+    //     color: ${props => props.theme.secondaryFontColor};
+    // }
 `
