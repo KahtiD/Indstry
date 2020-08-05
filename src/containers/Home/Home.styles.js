@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled, { keyframes, css } from 'styled-components/macro'
 import media from 'styled-media-query'
 import { RichText, PersonaCard, Hero, Carousel, SignUp, Border, ExperienceCard } from '../../components'
 
@@ -108,8 +108,8 @@ export const CTAWrapper = styled.div`
     `}
     ${media.greaterThan("1280px")`
     /* screen width is less than 768px (medium) */
-        // border-left: 1px solid ${props => props.theme.brandColor};
-        // border-right: 1px solid ${props => props.theme.brandColor};
+        border-left: 1px solid ${props => props.theme.brandColor};
+        border-right: 1px solid ${props => props.theme.brandColor};
     `}
 `
 export const CTAContainer = styled.div`
@@ -182,9 +182,9 @@ export const Grid = styled.div`
             position: fixed; 
             bottom: 6rem;
             z-index: 10;
-            right: 2.5rem;
-            margin-right: 2.5rem;
-            transform: translateX(-50%);
+            right: 2rem;
+            // margin-right: -2.5rem;
+            // transform: translateX(-50%);
         }
     `}
 `
@@ -249,3 +249,91 @@ export const PersonaGrid = styled.div`
         }
     `}
 `
+const reveal = keyframes`
+    0% {
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: inset 0 0 22px 0px rgba(0, 59, 255, 0.5);
+  }
+`
+const fadeOut = keyframes`
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+`
+
+export const CloseButton = styled.button`
+        width: 1.5rem;
+        height: 1.5rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-right: 3.125rem;
+        margin-top: 3.125rem;
+        padding: 0rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: none;
+        // &:hover {
+        //     svg {
+        //          * > {
+        //             stroke: ${props => props.theme.brandColor};
+        //           }  
+        //     }
+        // }
+`
+export const DetailsImage = styled.img.attrs(props => ({ src: props.img.url, alt: 'Yes meme'}))`
+    object-fit: cover;
+    width: 144px;
+    height: auto;
+    margin-bottom: 3.125rem;
+`
+export const DetailsName = styled.h1`
+        font-size: 1.25rem;
+        font-family: ${props => props.theme.tertiaryFont};
+        margin: 0rem;
+`
+export const DetailsDescription = styled.p`
+        margin: 0rem;
+`
+export const DetailsText = styled(RichText)`
+        width: 56%;
+        font-size: 1rem;
+        .colour {
+            color: ${props => props.theme.brandColor};
+        }
+        code {
+            font-family: ${props => props.theme.tertiaryFont};
+        }
+`
+export const DetailsPersonaWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 17%;
+`
+export const DetailsContainer = styled.div`
+    background-color: ${props => props.theme.ui04};
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    // box-shadow: inset 6px 6px 12px -6px ${props => props.theme.ui02}, inset -6px 0 12px -6px ${props => props.theme.ui02};
+    animation: ${reveal} 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    // animaition-delay: 0.8s;
+    ${props => props.fadeOut && css`
+        animation: ${fadeOut} 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    `}
+`
+
+  

@@ -20,6 +20,7 @@ export const Image = styled.img.attrs(props => ({ src: props.img.url, alt: props
     object-fit: cover;
     width: 343px;
     height: auto;
+    background-color: grey;
 `
 
 export const Link = styled.a`

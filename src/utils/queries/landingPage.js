@@ -23,6 +23,9 @@ export const LANDINGPAGE_QUERY = gql`
         description
         width
         height
+        body {
+          html
+        }
       }
       bio {
         body {

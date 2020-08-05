@@ -10,10 +10,19 @@ const onHover = keyframes`
         transform: scale(1.03);
     }
 `
+const slideIn = keyframes`
+    0% {
+        transform: translateY(100px);
+    }
+    100% {
+        transform: translateY(1);
+    }
+`
 
 export const BorderContainer = styled.div`
     padding: 15.5px 11px;
     display: flex;
+    animation: ${slideIn} 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 `
 export const Name = styled.h1`
     font-weight: inherit;
@@ -36,11 +45,8 @@ export const Wrapper = styled.div`
     padding: 1.5rem;
     border: 1px solid ${props => props.theme.ui02};
     &:hover {
-        border-top: 1px solid ${props => props.theme.brandColor};
-        border-bottom: 1px solid ${props => props.theme.brandColor};
-        border-left: none;
-        border-right: none;
-        box-shadow: 0px 0px 15px #00000029;
+        border: none;
+        box-shadow: 0px 0px 15px #00000040;
         animation: ${onHover} 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     }
     ${Name}, ${Description} {

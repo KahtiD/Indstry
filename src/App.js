@@ -2,7 +2,7 @@ import React from 'react'
 import { Home } from './containers'
 import { Header, Footer } from './components'
 import { Route, Switch } from 'react-router-dom'
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components/macro'
+import styled, { createGlobalStyle, ThemeProvider, keyframes } from 'styled-components/macro'
 import media from 'styled-media-query'
 import { theme } from './utils/theme'
 
@@ -17,13 +17,13 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 const Container = styled.main`
+  background: white;
   max-width: 1280px;
   margin: 0 auto;
   height: 100%;
   ${media.greaterThan("1280px")`
     border-left: 1px solid ${props => props.theme.brandColor};
     border-right: 1px solid ${props => props.theme.brandColor};
-    // z-index: 2;
 `}
 `
 

@@ -5,13 +5,14 @@ import media from 'styled-media-query'
 export const AuthoWrapper = styled.div``
 export const SignUp = styled.a``
 export const Wrapper = styled.header`
+    background: white;
     max-width: 100vw;
     height: 47px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0rem 1.6rem;
-    border-bottom: 1px solid #003bff;
+    border-bottom: 1px solid ${props => props.theme.brandColor};
     svg {
       // > * {
         width: 60.69px;
