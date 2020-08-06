@@ -1,6 +1,6 @@
 import styled, { keyframes, css } from 'styled-components/macro'
 import media from 'styled-media-query'
-import { RichText, PersonaCard, Hero, Carousel, SignUp, Border, ExperienceCard } from '../../components'
+import { RichText, PersonaCard, Carousel, SignUp, Border, ExperienceCard } from '../../components'
 
 export const Title = styled.h1``
 
@@ -24,8 +24,8 @@ export const BioText = styled(RichText)`
     `}
 `
 export const Image = styled.img.attrs(props => ({ src: props.image, alt: 'Yes meme'}))`
-    width: auto;
-    max-height: 237px;
+    width: 80%;
+    height: auto;
     ${media.greaterThan("medium")`
     /* screen width is less than 768px (medium) */
         max-height: 338px;
@@ -35,9 +35,9 @@ export const Image = styled.img.attrs(props => ({ src: props.image, alt: 'Yes me
 export const BioWrapper = styled.div`
     display: flex;
     justify-content: space-around;
-    aling-items: center;
+    align-items: center;
     flex-direction: column;
-    padding: 3rem 1.5rem;
+    padding: 3rem 2rem;
     ${media.greaterThan("medium")`
     /* screen width is less than 768px (medium) */
         flex-direction: row;
@@ -50,7 +50,7 @@ export const BorderExt = styled(Border)`
     }
 `
 export const Description = styled(RichText)`
-    padding: 3rem 1.5rem;
+    padding: 3rem 2rem;
     font-size: 1rem;
     p {
         margin-top: 0rem;
@@ -72,7 +72,7 @@ export const Description = styled(RichText)`
 
 export const CTAButton = styled.button`
     border: 0;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     background: ${props => props.theme.ui02};
     color: ${props => props.theme.tertiaryFontColor};
     font-weight: bold;
@@ -84,6 +84,10 @@ export const CTAButton = styled.button`
         background: ${props => props.theme.primaryHover};
         box-shadow: 0px 0px 11px ${props => props.theme.primaryHover};
     }
+    ${media.greaterThan("medium")`
+    /* screen width is less than 768px (medium) */
+        padding: 1rem 2rem;
+    `}
 `
 export const CTAText = styled(RichText)`
     text-align: center;
@@ -122,6 +126,7 @@ export const CTAContainer = styled.div`
     justify-content: center;
     flex-direction: column;
     box-shadow: 0 12px 20px -4px ${props => props.theme.ui02};
+    padding: 2rem;
     .emphasis {
         font-family: ${props => props.theme.tertiaryFont};
         color: black;
@@ -140,23 +145,36 @@ export const ExperienceText = styled(RichText)`
         font-family: ${props => props.theme.tertiaryFont};
     }
     padding-bottom: 3rem; 
+    font-size: 1rem;
+    ${media.greaterThan("medium")`
+    /* screen width is less than 768px (medium) */
+        font-size: 1.25rem;
+    `}
 `
 export const ExperiencesContainer = styled.div`
-    padding: 0rem 1.5rem;
+    padding: 3rem 2rem;
     background: ${props => props.theme.ui05};
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 3.5rem;
     box-shadow: inset 0 -6px 12px -6px ${props => props.theme.ui02};
-    ${ExperienceText} {
-        grid-column: span 3;
-        margin-top: 4.5rem;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    ${ExperienceCard} {
+        width: 80%;
+        justify-self: center;
     }
     ${media.greaterThan("medium")`
     /* screen width is less than 768px (medium) */
         padding: 0rem 3.5rem; 
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: none;
+        grid-column-gap: 3.5rem;
         ${ExperienceCard} {
-            margin-bottom: 4.5rem
+            margin-bottom: 4.5rem;
+            width: 343px;
+        }
+        ${ExperienceText} {
+            grid-column: span 3;
+            margin-top: 4.5rem;
         }
     `}
 `
@@ -169,6 +187,12 @@ export const Grid = styled.div`
     ${Border} {
         z-index: 10;
     } 
+    ${SignUp} {
+        position: fixed; 
+        bottom: 4rem;
+        z-index: 10;
+        right: 1rem;
+    }
     ${media.greaterThan("medium")`
     /* screen width is less than 768px (medium) */
         ${CTAText} {
@@ -179,12 +203,8 @@ export const Grid = styled.div`
             margin: 2.5rem 0rem;
         }
         ${SignUp} {
-            position: fixed; 
-            bottom: 6rem;
-            z-index: 10;
             right: 2rem;
-            // margin-right: -2.5rem;
-            // transform: translateX(-50%);
+            bottom: 6rem;
         }
     `}
 `
@@ -292,47 +312,79 @@ export const CloseButton = styled.button`
 `
 export const DetailsImage = styled.img.attrs(props => ({ src: props.img.url, alt: 'Yes meme'}))`
     object-fit: cover;
-    width: 144px;
+    width: 100%;
     height: auto;
-    margin-bottom: 3.125rem;
+    margin-bottom: 1rem;
+    ${media.greaterThan("medium")`
+    /* screen width is less than 768px (medium) */
+        margin-bottom: 3.125rem;
+    `}
 `
 export const DetailsName = styled.h1`
-        font-size: 1.25rem;
+        font-size: 0.9rem;
         font-family: ${props => props.theme.tertiaryFont};
         margin: 0rem;
+    ${media.greaterThan("medium")`
+    /* screen width is less than 768px (medium) */
+        font-size: 1.25rem;
+    `}
 `
 export const DetailsDescription = styled.p`
         margin: 0rem;
+        font-size: 0.9rem;
+        ${media.greaterThan("medium")`
+    /* screen width is less than 768px (medium) */
+        font-size: 1.25rem;
+    `}
 `
 export const DetailsText = styled(RichText)`
-        width: 56%;
         font-size: 1rem;
+        margin: 2rem;
+        margin-top: 0rem;
         .colour {
             color: ${props => props.theme.brandColor};
         }
         code {
             font-family: ${props => props.theme.tertiaryFont};
         }
+        ${media.greaterThan("medium")`
+    /* screen width is less than 768px (medium) */
+        margin: 0rem;
+        width: 56%;
+    `}
 `
 export const DetailsPersonaWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 17%;
+    width: 24%;
+    margin-top: 2rem;
+    ${media.greaterThan("medium")`
+    /* screen width is less than 768px (medium) */
+        width: 17%;
+        margin: 0rem;
+    `}
 `
 export const DetailsContainer = styled.div`
     background-color: ${props => props.theme.ui04};
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
     position: relative;
-    // box-shadow: inset 6px 6px 12px -6px ${props => props.theme.ui02}, inset -6px 0 12px -6px ${props => props.theme.ui02};
     animation: ${reveal} 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     // animaition-delay: 0.8s;
     ${props => props.fadeOut && css`
         animation: ${fadeOut} 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    `}
+    ${media.greaterThan("medium")`
+    /* screen width is less than 768px (medium) */
+        font-size: 1.25rem;
+        flex-direction: row;
+        height: 100vh;
     `}
 `
 

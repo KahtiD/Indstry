@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components/macro'
-// import media from 'styled-media-query'
+import media from 'styled-media-query'
 
 const wobble = keyframes`
 0% {
@@ -33,9 +33,10 @@ const wobble = keyframes`
 `
 
 export const Wrapper = styled.button`
+    z-index: 10;
     border: 0;
-    height: 68px;
-    width: 68px;
+    height: 56px;
+    width: 56px;
     border-radius: 50%;
     background: ${props => props.theme.ui04};
     box-shadow: 0px 1px 20px #00000029;
@@ -53,5 +54,10 @@ export const Wrapper = styled.button`
             
         }
     }
+    ${media.greaterThan("medium")`
+    /* screen width is less than 768px (medium) */
+      height: 68px;
+      width: 68px;
+    `}
 `  
   

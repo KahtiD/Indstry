@@ -79,9 +79,8 @@ const Home = () => {
         )}
         {/* <S.ExperienceText text={text.tweetCta.html} /> */}
         {/* <Carousel items={tweets}/> */}
-        <SignUp />
       </S.ExperiencesContainer>
-      
+      <SignUp />
     </S.Grid>
   )
 }
