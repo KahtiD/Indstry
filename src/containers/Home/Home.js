@@ -66,7 +66,7 @@ const Home = () => {
           <S.CTAButton>{text.cta.buttonText}</S.CTAButton>
         </S.CTAWrapper>
       </S.CTAContainer>
-      <S.ExperiencesContainer>
+      {/* <S.ExperiencesContainer>
         <S.ExperienceText text={text.experienceText.html} />
         {experienceCards.map( card => (
             <ExperienceCard 
@@ -76,10 +76,10 @@ const Home = () => {
               link={card.link}
             />
           )
-        )}
+        )} */}
         {/* <S.ExperienceText text={text.tweetCta.html} /> */}
         {/* <Carousel items={tweets}/> */}
-      </S.ExperiencesContainer>
+      {/* </S.ExperiencesContainer> */}
       <SignUp />
     </S.Grid>
   )

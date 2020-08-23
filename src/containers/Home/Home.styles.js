@@ -7,16 +7,24 @@ export const Title = styled.h1``
 export const BioText = styled(RichText)`
     font-size: 1rem;
     padding-bottom: 3rem;
+    max-width: 385px;
     p {
         margin-bottom: 0rem;
         code {
             font-family: ${props => props.theme.tertiaryFont};
         }
     }
+    ${media.between("414px","1025px")`
+    /* screen width is less than 768px (medium) */
+        max-width: 385px;
+    `}
+    ${media.greaterThan("1025px")`
+    /* screen width is less than 768px (medium) */
+        max-width: 457px;
+        font-size: 1.25rem;
+    `}
     ${media.greaterThan("medium")`
     /* screen width is less than 768px (medium) */
-        font-size: 1.25rem;
-        max-width: 457px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -24,12 +32,16 @@ export const BioText = styled(RichText)`
     `}
 `
 export const Image = styled.img.attrs(props => ({ src: props.image, alt: 'Yes meme'}))`
-    width: 80%;
+    max-width: 80%;
     height: auto;
-    ${media.greaterThan("medium")`
+    object-fit: cover;
+    ${media.between("414px","1025px")`
+    /* screen width is less than 768px (medium) */
+        max-height: 300px;
+    `}
+    ${media.greaterThan("1025px")`
     /* screen width is less than 768px (medium) */
         max-height: 338px;
-        object-fit: cover;
     `}
 `
 export const BioWrapper = styled.div`
@@ -62,10 +74,14 @@ export const Description = styled(RichText)`
             font-weight: 600;
         }
     }
+    ${media.greaterThan("1025px")`
+    /* screen width is less than 768px (medium) */
+        // max-width: 457px;
+        font-size: 1.25rem;
+    `}
     ${media.greaterThan("medium")`
     /* screen width is less than 768px (medium) */
         padding: 4rem 3.5rem;
-        font-size: 1.25rem;
     `}
 }   
 `
@@ -94,7 +110,7 @@ export const CTAText = styled(RichText)`
     font-size: 1rem;
     color: ${props => props.theme.primaryFontColor};
     // padding: 3rem 1.5rem 1.5rem 1.5rem;
-    ${media.greaterThan("medium")`
+    ${media.greaterThan("1025px")`
     /* screen width is less than 768px (medium) */
         font-size: 1.25rem;
     `}
@@ -109,11 +125,6 @@ export const CTAWrapper = styled.div`
     ${media.greaterThan("medium")`
     /* screen width is less than 768px (medium) */
         padding: 4.5rem 0rem;
-    `}
-    ${media.greaterThan("1280px")`
-    /* screen width is less than 768px (medium) */
-        border-left: 1px solid ${props => props.theme.brandColor};
-        border-right: 1px solid ${props => props.theme.brandColor};
     `}
 `
 export const CTAContainer = styled.div`

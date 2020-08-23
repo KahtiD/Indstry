@@ -42,7 +42,7 @@ export const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    padding: 1.5rem;
+    padding: 1rem;
     border: 1px solid ${props => props.theme.ui02};
     &:hover {
         border: none;
@@ -50,14 +50,17 @@ export const Wrapper = styled.div`
         animation: ${onHover} 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     }
     ${Name}, ${Description} {
-        font-size: 0.75rem;
+        font-size: 1rem;
         text-align: center;
     }
     ${media.greaterThan("medium")`
     /* screen width is less than 768px (medium) */
         padding: 4.5rem 2rem;
+    `}
+    ${media.greaterThan("1025px")`
+    /* screen width is less than 768px (medium) */
         ${Name}, ${Description} {
-            font-size: 1.38vw;
+            font-size: 1.25rem;
         }
     `}
 `
